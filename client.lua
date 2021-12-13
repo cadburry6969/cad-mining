@@ -1,16 +1,11 @@
-QBCore = nil
+local QBCore = exports['qb-core']:GetCoreObject()
 local mining = false
 local isWashing = false
 local isMelting = false
 
 Citizen.CreateThread(function()
-    while QBCore == nil do 
-        TriggerEvent('QBCore:GetObject', function(obj) QBCore = obj end) 
-        Wait(0) 
-    end
-
+    Wait(1000)
     AddMineBlip()
-
     Citizen.CreateThread(function()
         while true do
             local sleep = 100
